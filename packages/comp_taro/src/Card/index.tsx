@@ -1,6 +1,5 @@
 import React from 'react';
 import { AtCard } from 'taro-ui';
-import 'taro-ui/dist/style/components/card.scss';
 
 export interface CardProps {
   title: string;

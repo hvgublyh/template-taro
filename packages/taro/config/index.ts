@@ -10,10 +10,9 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
     date: '2025-4-12',
     designWidth: 750,
     deviceRatio: {
-      640: 2.34 / 2,
+      640: 2.34 / 375,
       750: 1,
-      375: 2,
-      828: 1.81 / 2
+      828: 2.34 / 414
     },
     sourceRoot: 'src',
     outputRoot: 'dist',
@@ -36,7 +35,13 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         pxtransform: {
           enable: true,
           config: {
-
+            onePxTransform: true,
+            unitPrecision: 5,
+            propList: ['*'],
+            selectorBlackList: [],
+            replace: true,
+            mediaQuery: false,
+            minPixelValue: 0
           }
         },
         cssModules: {
@@ -53,10 +58,12 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
     },
     h5: {
       publicPath: '/',
-      staticDirectory: 'static',
       devServer: {
-        hot: false,
+        client: {
+          overlay: false, // 关闭警告弹框
+        },
       },
+      staticDirectory: 'static',
       output: {
         filename: 'js/[name].[hash:8].js',
         chunkFilename: 'js/[name].[chunkhash:8].js'
@@ -66,6 +73,7 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         filename: 'css/[name].[hash].css',
         chunkFilename: 'css/[name].[chunkhash].css'
       },
+      esnextModules: ['taro-ui'],
       postcss: {
         autoprefixer: {
           enable: true,
@@ -73,9 +81,25 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         },
         cssModules: {
           enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+
           config: {
             namingPattern: 'module', // 转换模式，取值为 global/module
             generateScopedName: '[name]__[local]___[hash:base64:5]'
+          }
+        },
+        pxtransform: {
+          enable: true,
+          config: {
+            onePxTransform: true,
+            unitPrecision: 5,
+            propList: ['*'],
+            selectorBlackList: [],
+            replace: true,
+            mediaQuery: false,
+            minPixelValue: 0,
+            baseFontSize: 20,
+            maxRootSize: 40,
+            minRootSize: 20
           }
         }
       },
@@ -86,6 +110,10 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
           warnings: false // 关闭警告日志
         });
       }
+    },
+    // 微信小程序配置
+    weapp: {
+      outputRoot: 'wechat',
     },
     rn: {
       appName: 'demo2',

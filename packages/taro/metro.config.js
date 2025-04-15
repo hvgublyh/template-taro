@@ -8,9 +8,6 @@ const { getMetroConfig } = require('@tarojs/rn-supporter')
  * @type {import('metro-config').MetroConfig}
  */
 const config = {
-  stats: {
-    warnings: false // 关闭警告日志
-  }
 }
 
 module.exports = (async function (){

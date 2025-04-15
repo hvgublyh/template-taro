@@ -1,0 +1,65 @@
+/* CSS Reset and Base Styles for WeChat Mini Program and H5 Consistency */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+/* Fix button appearance inconsistencies */
+button {
+  font-size: inherit;
+  line-height: inherit;
+  border-radius: 0;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+button::after {
+  border: none;
+}
+
+/* Fix image display */
+image, img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Remove list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fix for common inconsistencies */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/* Fix for input elements */
+input, textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  -webkit-appearance: none;
+}
+
+/* Fix for view appearance */
+view, div {
+  box-sizing: border-box;
+}

@@ -1,6 +1,7 @@
 import { Component, PropsWithChildren } from 'react'
 import { View } from '@tarojs/components'
 import { Card } from '@tarotpl/comp_taro'
+import { AtTag } from "taro-ui";
 import './index.scss'
 
 export default class Index extends Component<PropsWithChildren> {
@@ -16,6 +17,7 @@ export default class Index extends Component<PropsWithChildren> {
   render() {
     return (
       <View className='index'>
+        <AtTag type='primary'>标签</AtTag>
         <Card title='test'></Card>
       </View>
     )
