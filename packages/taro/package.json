@@ -85,7 +85,7 @@
     "react-dom": "^18.2.0",
     "react-native": "^0.73.1",
     "react-native-device-info": "14.0.0",
-    "react-native-gesture-handler": "~2.14.0",
+    "react-native-gesture-handler": "~2.14.1",
     "react-native-image-zoom-viewer": "3.0.1",
     "react-native-pager-view": "6.2.3",
     "react-native-root-siblings": "5.0.1",

@@ -6,7 +6,7 @@
     "postinstall": "husky install",
     "build": "pnpm --filter=@tarotpl/* run build",
     "commit": "cz",
-    "clear": "rimraf 'packages/{comp_taro,taro}/{lib,node_modules}' && rimraf node_modules",
+    "clear": "rimraf 'packages/{comp_taro,taro, rn}/{node_modules}' && rimraf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "pnpm build && pnpm release:only",
