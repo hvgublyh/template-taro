@@ -16,6 +16,7 @@ lib
 .history
 .idea
 packages/*/build
+packages/*/wechat
 # 依赖包
 packages/*/node_modules
 packages/*/lib
