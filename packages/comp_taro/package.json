@@ -67,6 +67,6 @@
   "dependencies": {
     "@swc/core": "^1.11.8",
     "antd": "^5.0.0",
-    "taro-ui": "^3.3.0"
+    "@tarojs/components": "4.0.10"
   }
 }

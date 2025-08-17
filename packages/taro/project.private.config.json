@@ -3,5 +3,6 @@
   "projectname": "taro",
   "setting": {
     "compileHotReLoad": true
-  }
+  },
+  "libVersion": "trial"
 }

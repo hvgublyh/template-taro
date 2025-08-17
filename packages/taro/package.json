@@ -57,6 +57,7 @@
     "@tarojs/components-rn": "4.0.10",
     "@tarojs/helper": "4.0.10",
     "@tarojs/plugin-framework-react": "4.0.10",
+    "@tarojs/plugin-http": "^4.1.5",
     "@tarojs/plugin-platform-alipay": "4.0.10",
     "@tarojs/plugin-platform-h5": "4.0.10",
     "@tarojs/plugin-platform-jd": "4.0.10",
@@ -93,7 +94,6 @@
     "react-native-screens": "~3.29.0",
     "react-native-svg": "14.1.0",
     "react-native-webview": "13.6.4",
-    "taro-ui": "^3.3.0",
     "tsconfig-paths-webpack-plugin": "^4.0.1"
   },
   "devDependencies": {

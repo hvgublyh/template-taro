@@ -1,5 +1,7 @@
 node_modules
 dist
+ios
+android
 build
 .DS_Store
 .env.local
@@ -14,7 +16,8 @@ lib
 .history
 .idea
 packages/*/build
-packages/*/dist
+# 依赖包
 packages/*/node_modules
 packages/*/lib
-packages/*/wechat
+
+

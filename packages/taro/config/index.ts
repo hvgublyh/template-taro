@@ -6,6 +6,7 @@ import prodConfig from './prod'
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport<'webpack5'> = {
+    plugins: ['@tarojs/plugin-http'],
     projectName: 'demo2',
     date: '2025-4-12',
     designWidth: 750,
@@ -16,8 +17,9 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
     },
     sourceRoot: 'src',
     outputRoot: 'dist',
-    plugins: [],
     defineConstants: {
+      'process.env.TARO_APP_API_URL': JSON.stringify(process.env.TARO_APP_API_URL),
+      'process.env.TARO_APP_ENV': JSON.stringify(process.env.TARO_APP_ENV)
     },
     copy: {
       patterns: [
@@ -56,9 +58,16 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
       }
     },
-    h5: {
+    h5: {     
       publicPath: '/',
       devServer: {
+        proxy: {
+          '/api': {
+            target: process.env.TARO_APP_API_URL,
+            changeOrigin: true,
+            pathRewrite: { '^/api': '' }
+          }
+        },
         client: {
           overlay: false, // 关闭警告弹框
         },
@@ -73,7 +82,7 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         filename: 'css/[name].[hash].css',
         chunkFilename: 'css/[name].[chunkhash].css'
       },
-      esnextModules: ['taro-ui'],
+      esnextModules: ['@tarojs/runtime', '@tarojs/shared', '@tarojs/taro'],
       postcss: {
         autoprefixer: {
           enable: true,
