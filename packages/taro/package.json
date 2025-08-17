@@ -71,6 +71,7 @@
     "@tarojs/runtime-rn": "4.0.10",
     "@tarojs/shared": "4.0.10",
     "@tarojs/taro": "4.0.10",
+    "@tarojs/taro-h5": "^4.0.10",
     "@tarojs/taro-rn": "4.0.10",
     "expo": "~50.0.21",
     "expo-av": "~13.10.6",

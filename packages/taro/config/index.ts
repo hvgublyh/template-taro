@@ -1,4 +1,5 @@
 import { defineConfig, type UserConfigExport } from '@tarojs/cli'
+import path from 'path'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import devConfig from './dev'
 import prodConfig from './prod'
@@ -58,7 +59,7 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
       }
     },
-    h5: {     
+    h5: {
       publicPath: '/',
       devServer: {
         proxy: {
@@ -82,7 +83,7 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         filename: 'css/[name].[hash].css',
         chunkFilename: 'css/[name].[chunkhash].css'
       },
-      esnextModules: ['@tarojs/runtime', '@tarojs/shared', '@tarojs/taro'],
+      esnextModules: ['@tarojs/runtime', '@tarojs/shared', '@tarojs/taro-h5'],
       postcss: {
         autoprefixer: {
           enable: true,
@@ -113,8 +114,9 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         }
       },
       webpackChain(chain) {
-        chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         // 关闭警告弹框
+        chain.resolve.alias.set('@tarojs/taro', '@tarojs/taro-h5')
+        chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         chain.stats({
           warnings: false // 关闭警告日志
         });

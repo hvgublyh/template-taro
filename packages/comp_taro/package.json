@@ -39,6 +39,8 @@
     "typescript": "^4.9.5",
     "@tarojs/components": "4.0.10",
     "@tarojs/taro": "4.0.10",
+    "@tarojs/taro-h5": "^4.0.10",
+    "@tarojs/taro-rn": "4.0.10",
     "@tarojs/plugin-platform-weapp": "4.0.10"
   },
   "peerDependencies": {
