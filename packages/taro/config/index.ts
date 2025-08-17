@@ -56,6 +56,7 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         }
       },
       webpackChain(chain) {
+        chain.resolve.alias.set('@tarojs/taro-default', '@tarojs/taro')
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
       }
     },
@@ -115,7 +116,7 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
       },
       webpackChain(chain) {
         // 关闭警告弹框
-        chain.resolve.alias.set('@tarojs/taro', '@tarojs/taro-h5')
+        chain.resolve.alias.set('@tarojs/taro-default', '@tarojs/taro-h5')
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         chain.stats({
           warnings: false // 关闭警告日志
