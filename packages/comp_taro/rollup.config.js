@@ -25,5 +25,16 @@ export default {
       }
     })
   ],
-  external: ['react', 'react-dom', 'antd']
+  // 关键：将所有 Taro 相关的包设为 external
+  external: [
+    'react', 
+    'react-dom', 
+    'antd',
+    '@tarojs/components',
+    '@tarojs/taro',
+    '@tarojs/runtime',
+    '@tarojs/shared',
+    // 使用正则表达式匹配所有 @tarojs 开头的包
+    /^@tarojs\//
+  ]
 };
